@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -122,24 +122,31 @@ const Message = styled.div`
   }
 `;
 
-const SuccessAnimation = ({ color = '#000000', text = 'Success' }) => (
-  <Container>
-    <Cicle className="ripple-out" color={color}>
-      <Tick className="pop" color={color}>
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="22">
-          <path d="M11.637 20.286a2.41 2.41 0 0 1-3.411 0L2.11 14.17a2.42 2.42 0 0 1 0-3.413c.943-.94 2.47-.94 3.41 0l4.412 4.412L22.87 2.23a2.41 2.41 0 1 1 3.411 3.411L11.637 20.286z" fill={color} fillRule="evenodd"/>
-        </svg>
-      </Tick>
-    </Cicle>
-    {
-      text && <Message className="message" color={color}>{text}</Message>
-    }
-  </Container>
-);
+const SuccessAnimation = ({ color = '#000000', text = 'Success', liveRegion = '' }) => {
+  useLayoutEffect(function() {
+    if (liveRegion) window.document.getElementById(liveRegion).innerHTML = text
+  }, [])
+
+  return (
+    <Container>
+      <Cicle className="ripple-out" color={color}>
+        <Tick className="pop" color={color}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="22">
+            <path d="M11.637 20.286a2.41 2.41 0 0 1-3.411 0L2.11 14.17a2.42 2.42 0 0 1 0-3.413c.943-.94 2.47-.94 3.41 0l4.412 4.412L22.87 2.23a2.41 2.41 0 1 1 3.411 3.411L11.637 20.286z" fill={color} fillRule="evenodd"/>
+          </svg>
+        </Tick>
+      </Cicle>
+      {
+        text && <Message className="message" color={color}>{text}</Message>
+      }
+    </Container>
+  );
+}
 
 SuccessAnimation.propTypes = {
   color: PropTypes.string,
-  text: PropTypes.string
+  text: PropTypes.string,
+  liveRegion: PropTypes.string
 }
 
 export default SuccessAnimation;
