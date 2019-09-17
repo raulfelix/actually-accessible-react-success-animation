@@ -1,10 +1,10 @@
-# Simple success message animation
+# An accessible react success animation
 
-This CSS animated react success message component is more interesting than just your average green
+This CSS animated, success react component is more interesting than just your average green
 banner and it bakes in accessibility. Use this to indicate a process has completed successfully.
 
 ### Installation
-```npm i actually-accessible-react-success-message --save```
+```npm i actually-accessible-react-success --save```
 
 ### Usage
 
@@ -13,7 +13,7 @@ Simply render it at the time you want to show something has completed.
 ```
 import ReactDOM from 'react-dom';
 import React, { useState } from 'react';
-import SuccessAnimation from './SuccessAnimation';
+import SuccessAnimation from 'actually-accessible-react-success-animation';
 
 function Demo() {
   const [ok, setOk] = useState(false)
@@ -48,8 +48,7 @@ ReactDOM.render(
 
 **text** `optional` Customise the message displayed as part of the indicator. Default to `Success`
 
-**liveRegion** `optional` Pass the id of a live region component you have on your page which will be populated when the success message displays.
-
+**liveRegion** `optional` Pass the id of a live region element that exits on your page which will be populated when the success message displays.
 
 ### Accessibility
 

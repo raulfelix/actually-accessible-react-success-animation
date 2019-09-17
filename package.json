@@ -1,10 +1,10 @@
 {
-  "name": "success-animation-react",
-  "version": "1.0.2",
+  "name": "actually-accessible-react-success-animation",
+  "version": "1.0.0",
   "description": "A simple success animation",
   "repository": {
     "type": "git",
-    "url": "https://github.com/raulfelix/success-animation.git"
+    "url": "https://github.com/raulfelix/actually-accessible-react-success-animation.git"
   },
   "main": "dist/index.es.js",
   "keywords": [
